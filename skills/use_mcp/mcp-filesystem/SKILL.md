@@ -1,17 +1,17 @@
 ---
 name: mcp-filesystem
 version: 1.0.0
-description: Skill MCP spesifik untuk menyediakan akses Read-Only pada filesystem lokal project.
+description: Specific MCP skill providing Read-Only access to the local project filesystem.
 tags: [mcp, file, folder, disk, read]
 ---
 
 # Sub-Skill: mcp-filesystem
 
-Skill ini mengamankan koneksi ke MCP Server Filesystem. Begitu skill ini diaktifkan, kamu akan mendapatkan tools dengan prefix `filesystem__`.
+This skill establishes a secure connection to the Filesystem MCP Server. Once activated, you will receive tools prefixed with `filesystem__`.
 
-## Tools yang Tersedia:
-- `filesystem__list_directory`: Melihat daftar file & folder.
-- `filesystem__read_file`: Membaca isi text dari suatu file (max 500 baris).
-- `filesystem__file_info`: Mendapatkan info metadata suatu file.
+## Available Tools:
+- `filesystem__list_directory`: View the contents of a directory.
+- `filesystem__read_file`: Read the text contents of a file (max 500 lines).
+- `filesystem__file_info`: Retrieve metadata information for a specific file.
 
-Pastikan kamu mengecek daftar file dulu dengan `list_directory` jika bingung nama filenya apa.
+It is highly recommended to use `list_directory` first to verify exact file paths before attempting to read them.

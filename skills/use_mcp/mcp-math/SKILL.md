@@ -1,18 +1,18 @@
 ---
 name: mcp-math
 version: 1.0.0
-description: Skill MCP spesifik untuk menyediakan alat kalkulasi matematika (add, multiply, fibonacci, is_prime).
+description: Specific MCP skill providing mathematical calculation tools (add, multiply, fibonacci, is_prime).
 tags: [mcp, math, calculate, numbers]
 ---
 
 # Sub-Skill: mcp-math
 
-Skill ini mengamankan koneksi ke MCP Server Math. Begitu skill ini diaktifkan, kamu akan mendapatkan tools dengan prefix `math__`.
+This skill establishes a secure connection to the Math MCP Server. Once activated, you will receive tools prefixed with `math__`.
 
-## Tools yang Tersedia:
-- `math__add`: Menambahkan dua angka.
-- `math__multiply`: Mengalikan dua angka.
-- `math__fibonacci`: Mencari nilai barisan Fibonacci.
-- `math__is_prime`: Mengecek apakah suatu angka prima atau bukan.
+## Available Tools:
+- `math__add`: Adds two numbers together.
+- `math__multiply`: Multiplies two numbers.
+- `math__fibonacci`: Calculates the value of the Fibonacci sequence at a given position.
+- `math__is_prime`: Checks if a given number is a prime number.
 
-Gunakan tool-tool ini untuk menghindari halusinasi saat menghitung!
+Always utilize these tools for mathematical queries to eliminate hallucination risks.

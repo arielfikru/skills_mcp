@@ -50,8 +50,8 @@ def print_banner():
 ║                                                              ║
 ║   🧩  MCP-in-Skills POC (Lazy Loading)                      ║
 ║   ────────────────────────────────────                       ║
-║   Skill di-register metadata saja. MCP konek HANYA jika      ║
-║   LLM memanggil activate_skill('use-mcp').                   ║
+║   Skills are registered via metadata only. MCP connects      ║
+║   ONLY when the LLM explicitly calls activate_skill().       ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝{C_RESET}
 """
@@ -162,7 +162,7 @@ class Agent:
 
     async def initialize(self):
         """Setup initial prompt and register skills (metadata only)."""
-        base_prompt = "Kamu adalah AI assistant cerdas dan proaktif.\n\n"
+        base_prompt = "You are a smart and proactive AI assistant.\n\n"
         
         if self.skill_enabled:
             # Only scan and register names + descriptions. No MCP connect here!
@@ -180,11 +180,11 @@ class Agent:
             # Agent starts with only the activate_skill tool
             self.current_tools = list(self.base_tools)
             
-            print(f"\n  {C_GREEN}✅ Platform Ready. {len(registry)} skills ter-register.{C_RESET}")
-            print(f"  {C_DIM}│{C_RESET} Ingat: MCP server belum konek. Tools belum ada.")
-            print(f"  {C_DIM}│{C_RESET} Menunggu LLM memanggil activate_skill().")
+            print(f"\n  {C_GREEN}✅ Platform Ready. {len(registry)} skills registered.{C_RESET}")
+            print(f"  {C_DIM}│{C_RESET} Note: MCP servers are currently disconnected. Zero tools loaded.")
+            print(f"  {C_DIM}│{C_RESET} Waiting for LLM to call activate_skill().")
         else:
-            base_prompt += "CATATAN: Sistem skill dimatikan. Kamu tidak bisa menggunakan tool eksternal apapun."
+            base_prompt += "NOTE: The skill system is DISABLED. You do not have access to any external tools."
             print(f"\n  {C_RED}⚠ Skill System DISABLED{C_RESET}")
             self.current_tools = []
             
@@ -323,8 +323,8 @@ async def main():
         await agent.initialize()
         print_divider()
         
-        print(f"\n  {C_DIM}💡 Coba: \"Tolong hitung fibonacci ke-10\"{C_RESET}")
-        print(f"  {C_DIM}   Agent akan mengaktifkan skill 'use-mcp' dulu, baru call tool.{C_RESET}\n")
+        print(f"\n  {C_DIM}💡 Try asking: \"Please calculate the 10th fibonacci number\"{C_RESET}")
+        print(f"  {C_DIM}   The Agent will activate the 'mcp-math' skill to mount the required tool.{C_RESET}\n")
 
         while True:
             try:
